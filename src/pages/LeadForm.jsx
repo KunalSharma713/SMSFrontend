@@ -1,11 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import axiosInstance from '../api/axiosInstance';
 import { useNotification } from '../context/NotificationContext';
 import Dropdown from '../components/Dropdown';
 import { IllustrationLoginHero } from '../components/Illustrations';
-
-const apiBase = import.meta.env.VITE_API_URL || '';
 
 export default function LeadForm() {
   const { toast } = useNotification();
@@ -25,8 +23,7 @@ export default function LeadForm() {
   const [fieldErrors, setFieldErrors] = useState({});
 
   useEffect(() => {
-    const base = apiBase || '';
-    axios.get(`${base}/api/programs/public`).then((res) => {
+    axiosInstance.get('/programs/public').then((res) => {
       setPrograms(res.data.data || []);
     }).catch(() => setPrograms([]));
   }, []);
@@ -56,7 +53,7 @@ export default function LeadForm() {
 
     setLoading(true);
     try {
-      await axios.post(`${apiBase || ''}/api/leads`, {
+      await axiosInstance.post('/leads', {
         ...form,
         interestedProgram: form.interestedProgram || undefined
       });
