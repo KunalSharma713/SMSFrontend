@@ -175,11 +175,9 @@ export default function Users() {
                     <>
                       <button type="button" className="btn btn-ghost-app" onClick={() => openEdit(u)}>
                         <EditOutlinedIcon fontSize="small" />
-                        Edit
                       </button>
                       <button type="button" className="btn btn-danger-app" onClick={() => handleDelete(u._id)}>
                         <DeleteOutlineOutlinedIcon fontSize="small" />
-                        Delete
                       </button>
                     </>
                   )}
