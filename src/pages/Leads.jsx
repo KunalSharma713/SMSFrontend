@@ -165,7 +165,6 @@ export default function Leads() {
                     title="View"
                   >
                     <VisibilityOutlinedIcon fontSize="small" />
-                    View
                   </button>
                   {user?.role === 'ADMIN' ? (
                     lead.status === 'ENROLLED' ? (
@@ -180,7 +179,6 @@ export default function Leads() {
                   ) : (
                     <button type="button" className="btn btn-ghost-app" onClick={() => navigate(`/leads/${lead._id}`, { state: { mode: 'edit' } })}>
                       <EditOutlinedIcon fontSize="small" />
-                      Edit
                     </button>
                   )}
                 </div>

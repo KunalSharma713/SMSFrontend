@@ -156,11 +156,9 @@ export default function Programs() {
               <div className="program-card-actions">
                 <button type="button" className="btn btn-ghost-app" onClick={() => openEdit(p)}>
                   <EditOutlinedIcon fontSize="small" />
-                  Edit
                 </button>
                 <button type="button" className="btn btn-danger-app" onClick={() => handleDelete(p._id)}>
                   <DeleteOutlineOutlinedIcon fontSize="small" />
-                  Delete
                 </button>
               </div>
             )}
