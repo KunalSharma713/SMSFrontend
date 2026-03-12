@@ -20,8 +20,9 @@ function App() {
     <>
       <ToastContainer />
       <Routes>
-        <Route path="/login" element={isAuthenticated ? <Navigate to="/" replace /> : <Login />} />
+        <Route path="/login" element={isAuthenticated ? <Navigate to="/home" replace /> : <Login />} />
         <Route path="/lead" element={<LeadForm />} />
+        <Route path="/home" element={<Landing />} />
 
         <Route
           path="/"
@@ -31,7 +32,7 @@ function App() {
                 <Layout />
               </ProtectedRoute>
             ) : (
-              <Landing />
+              <Navigate to="/home" replace />
             )
           }
         >
@@ -43,7 +44,7 @@ function App() {
           <Route path="users" element={<ProtectedRoute allowedRoles={['ADMIN']}><Users /></ProtectedRoute>} />
         </Route>
 
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="*" element={<Navigate to="/home" replace />} />
       </Routes>
     </>
   );
