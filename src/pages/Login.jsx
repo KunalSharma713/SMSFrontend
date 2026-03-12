@@ -56,7 +56,7 @@ export default function Login() {
     <div className="login-page">
       <div className="login-panel login-panel-brand">
         <div className="login-brand-content">
-          <div className="login-logo">
+          <div className="login-logo" onClick={() => navigate('/home')} style={{ cursor: 'pointer' }}>
             <span className="login-logo-icon" aria-hidden>BRD</span>
             <span className="login-logo-text">BRD Institute</span>
           </div>

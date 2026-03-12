@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useNotification } from '../context/NotificationContext';
 import Dropdown from '../components/Dropdown';
@@ -9,6 +9,7 @@ const apiBase = import.meta.env.VITE_API_URL || '';
 
 export default function LeadForm() {
   const { toast } = useNotification();
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     firstName: '',
     lastName: '',
@@ -73,7 +74,7 @@ export default function LeadForm() {
     <div className="login-page">
       <div className="login-panel login-panel-brand">
         <div className="login-brand-content">
-          <div className="login-logo">
+          <div className="login-logo" onClick={() => navigate('/home')} style={{ cursor: 'pointer' }}>
             <span className="login-logo-icon" aria-hidden>BRD</span>
             <span className="login-logo-text">BRD Institute</span>
           </div>
