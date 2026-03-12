@@ -8,7 +8,7 @@ import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 
 const navItems = [
-  { to: '/', label: 'Dashboard', roles: ['ADMIN', 'ADVISOR', 'MANAGEMENT'] },
+  { to: '/dashboard', label: 'Dashboard', roles: ['ADMIN', 'ADVISOR', 'MANAGEMENT'] },
   { to: '/leads', label: 'Leads', roles: ['ADMIN', 'ADVISOR', 'MANAGEMENT'] },
   { to: '/students', label: 'Students', roles: ['ADMIN', 'ADVISOR', 'MANAGEMENT'] },
   { to: '/programs', label: 'Programs', roles: ['ADMIN', 'ADVISOR', 'MANAGEMENT'] },
@@ -36,7 +36,7 @@ export default function Layout() {
     <div className="layout">
       <header className="layout-header">
         <div className="container layout-header-inner">
-          <NavLink to="/" className="logo">
+          <NavLink to="/dashboard" className="logo">
             <span className="logo-icon" aria-hidden><IconPrograms /></span>
             BRD Institute
           </NavLink>
@@ -45,7 +45,7 @@ export default function Layout() {
               <NavLink
                 key={item.to}
                 to={item.to}
-                end={item.to === '/'}
+                end={item.to === '/dashboard'}
                 className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
               >
                 {item.label}

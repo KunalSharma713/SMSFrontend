@@ -36,7 +36,8 @@ function App() {
             )
           }
         >
-          <Route index element={user?.role === 'STUDENT' ? <Navigate to="/programs" replace /> : <Dashboard />} />
+          <Route index element={user?.role === 'STUDENT' ? <Navigate to="/programs" replace /> : <Navigate to="/dashboard" replace />} />
+          <Route path="dashboard" element={<Dashboard />} />
           <Route path="leads" element={<ProtectedRoute allowedRoles={['ADMIN', 'ADVISOR', 'MANAGEMENT']}><Leads /></ProtectedRoute>} />
           <Route path="leads/:id" element={<ProtectedRoute allowedRoles={['ADMIN', 'ADVISOR', 'MANAGEMENT']}><LeadDetail /></ProtectedRoute>} />
           <Route path="students" element={<ProtectedRoute allowedRoles={['ADMIN', 'ADVISOR', 'MANAGEMENT', 'STUDENT']}><Students /></ProtectedRoute>} />
